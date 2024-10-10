@@ -35,4 +35,14 @@ public class Oxygen : MonoBehaviour
             }
         }
     }
+
+    public float GetRemainingOxygen()
+    {
+        return remainingOxygen;
+    }
+
+    public float GetMaxOxygen()
+    {
+        return maxOxygen;
+    }
 }
