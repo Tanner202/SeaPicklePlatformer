@@ -18226,6 +18226,7 @@ GameObject:
   - component: {fileID: 1962784462}
   - component: {fileID: 1962784466}
   - component: {fileID: 1962784467}
+  - component: {fileID: 1962784468}
   m_Layer: 0
   m_Name: sea pickle
   m_TagString: Untagged
@@ -18401,6 +18402,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOxygen: 20
   oxygenRegenerationSpeed: 2
+--- !u!114 &1962784468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962784461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff84c03489cad484e927b33578f25273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996384013
 GameObject:
   m_ObjectHideFlags: 0

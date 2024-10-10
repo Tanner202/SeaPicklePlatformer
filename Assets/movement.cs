@@ -6,10 +6,12 @@ public class movement : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public float jumpstrength;
-    // Start is called before the first frame update
-    void Start()
+    
+    private WaterChecker waterChecker;
+
+    void Awake()
     {
-        
+        waterChecker = GetComponent<WaterChecker>();
     }
 
     // Update is called once per frame
@@ -25,10 +27,23 @@ public class movement : MonoBehaviour
             myRigidbody.velocity = Vector2.right * 6;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.W) == true)
+        if (waterChecker.IsInWater())
         {
-            myRigidbody.velocity = Vector2.up * jumpstrength;
+            if (Input.GetKey(KeyCode.W))
+            {
+                myRigidbody.velocity = Vector2.up * 6;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                myRigidbody.velocity = Vector2.down * 6;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.W) == true)
+            {
+                myRigidbody.velocity = Vector2.up * jumpstrength;
+            }
         }
     }
 }

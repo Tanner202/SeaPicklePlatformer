@@ -8,16 +8,17 @@ public class Oxygen : MonoBehaviour
     [SerializeField] private float oxygenRegenerationSpeed;
     private float remainingOxygen;
 
-    private bool isInWater = false;
+    private WaterChecker waterChecker;
 
     private void Awake()
     {
         remainingOxygen = maxOxygen;
+        waterChecker = GetComponent<WaterChecker>();
     }
 
     private void Update()
     {
-        if (isInWater)
+        if (waterChecker.IsInWater())
         {
             remainingOxygen -= Time.deltaTime;
             if (remainingOxygen <= 0)
@@ -32,24 +33,6 @@ public class Oxygen : MonoBehaviour
             {
                 remainingOxygen = maxOxygen;
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            isInWater = true;
-            Debug.Log("Entered Water");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            isInWater = false;
-            Debug.Log("Exited Water");
         }
     }
 }
