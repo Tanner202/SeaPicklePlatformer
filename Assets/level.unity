@@ -9739,7 +9739,7 @@ GameObject:
   - component: {fileID: 1113112881}
   - component: {fileID: 1113112880}
   - component: {fileID: 1113112882}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18551,6 +18551,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1962784464}
   jumpstrength: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &1962784463
 SpriteRenderer:
   m_ObjectHideFlags: 0

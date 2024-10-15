@@ -6,17 +6,13 @@ public class movement : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public float jumpstrength;
-<<<<<<< Updated upstream
     
     private WaterChecker waterChecker;
 
-    void Awake()
-=======
     public LayerMask ground;
 
     // Start is called before the first frame update
     void Start()
->>>>>>> Stashed changes
     {
         waterChecker = GetComponent<WaterChecker>();
     }
@@ -34,7 +30,6 @@ public class movement : MonoBehaviour
             myRigidbody.velocity = new Vector2(6, myRigidbody.velocity.y);
         }
 
-<<<<<<< Updated upstream
         if (waterChecker.IsInWater())
         {
             if (Input.GetKey(KeyCode.W))
@@ -48,16 +43,14 @@ public class movement : MonoBehaviour
         }
         else
         {
-=======
-
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, 1f, ground);
-        if (raycastHit2D.collider != null)
-        {
-            Debug.Log(raycastHit2D.collider.name);
->>>>>>> Stashed changes
-            if (Input.GetKeyDown(KeyCode.W) == true)
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, 1f, ground);
+            if (raycastHit2D.collider != null)
             {
-                myRigidbody.velocity = Vector2.up * jumpstrength;
+                Debug.Log(raycastHit2D.collider.name);
+                if (Input.GetKeyDown(KeyCode.W) == true)
+                {
+                    myRigidbody.velocity = Vector2.up * jumpstrength;
+                }
             }
         }
     }
