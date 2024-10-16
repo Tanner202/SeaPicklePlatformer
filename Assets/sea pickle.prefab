@@ -482,7 +482,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 7264814127514207077}
-  jumpstrength: 8
+  jumpstrength: 6.5
+  waterMoveSpeed: 3
+  landMoveSpeed: 4
+  defaultGravityScale: 0
+  waterGravityScale: 0.2
   ground:
     serializedVersion: 2
     m_Bits: 8
