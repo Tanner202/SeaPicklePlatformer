@@ -12,12 +12,14 @@ public class movement : MonoBehaviour
     public float waterGravityScale = 0.2f;
     
     private WaterChecker waterChecker;
+    private SpriteRenderer spriteRenderer;
 
     public LayerMask ground;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         waterChecker = GetComponent<WaterChecker>();
         defaultGravityScale = myRigidbody.gravityScale;
     }
@@ -28,10 +30,12 @@ public class movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A) == true)
         {
             myRigidbody.velocity = new Vector2(-landMoveSpeed, myRigidbody.velocity.y);
+            spriteRenderer.flipX = true;
         }
         else if (Input.GetKey(KeyCode.D) == true)
         {
             myRigidbody.velocity = new Vector2(landMoveSpeed, myRigidbody.velocity.y);
+            spriteRenderer.flipX = false;
         }
         else
         {
