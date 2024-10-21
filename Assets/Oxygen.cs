@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Oxygen : MonoBehaviour
@@ -7,11 +8,13 @@ public class Oxygen : MonoBehaviour
     [SerializeField] private float maxOxygen;
     [SerializeField] private float oxygenRegenerationSpeed;
     private float remainingOxygen;
+    private death_script death;
 
     private WaterChecker waterChecker;
 
     private void Awake()
     {
+        death = GetComponent<death_script>();
         remainingOxygen = maxOxygen;
         waterChecker = GetComponent<WaterChecker>();
     }
@@ -24,6 +27,7 @@ public class Oxygen : MonoBehaviour
             if (remainingOxygen <= 0)
             {
                 Debug.Log("You died!");
+                death.Death();
             }
         }
         else if (remainingOxygen < maxOxygen)
