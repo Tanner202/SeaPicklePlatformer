@@ -6,12 +6,18 @@ public class fishmovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     private Vector3 startingPosition;
-    private float distance = 5;
+    [SerializeField] private float distance = 5;
+    [SerializeField] private float speed = 1;
+
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startingPosition = transform.position;
-        rb.velocity = new Vector2(1, 0);
+        rb.velocity = new Vector2(speed, 0);
+        spriteRenderer.flipX = true;
     }
 
     // Update is called once per frame
@@ -19,21 +25,20 @@ public class fishmovement : MonoBehaviour
     {
         if (startingPosition.x - distance > transform.position.x)
         {
-            rb.velocity = new Vector2(1, 0);
+            rb.velocity = new Vector2(speed, 0);
+            spriteRenderer.flipX = true;
         }
         else if (startingPosition.x + distance < transform.position.x)
         {
-            rb.velocity = new Vector2(-1, 0);
+            rb.velocity = new Vector2(-speed, 0);
+            spriteRenderer.flipX = false;
         }
 
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered2" + other);
         death_script death = other.GetComponent<death_script>();
-        Debug.Log(other.GetComponent<death_script>());
-        Debug.Log(death);
         death.Death();
     }
 }
