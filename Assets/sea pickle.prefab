@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 6981440919414913174}
   - component: {fileID: 3236209172323948018}
   - component: {fileID: 8024684100964334681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sea pickle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

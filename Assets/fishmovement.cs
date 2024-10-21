@@ -7,7 +7,6 @@ public class fishmovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private Vector3 startingPosition;
     private float distance = 5;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +25,15 @@ public class fishmovement : MonoBehaviour
         {
             rb.velocity = new Vector2(-1, 0);
         }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Triggered2" + other);
+        death_script death = other.GetComponent<death_script>();
+        Debug.Log(other.GetComponent<death_script>());
+        Debug.Log(death);
+        death.Death();
     }
 }
